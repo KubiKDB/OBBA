@@ -1,0 +1,3865 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?themeColorBG"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText,SpUsage,TextSizeCheck">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/warning"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#60000000"
+        android:elevation="5dp"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:background="?themeColorBG"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="10dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:gravity="center"
+                android:text="Щоб продовжити грати, оновіть додаток"
+                android:textColor="?themeColorTXT"
+                android:textSize="22dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/update_btn" />
+
+            <TextView
+                android:id="@+id/update_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" UPDATE "
+                android:textColor="@color/blue"
+                android:textSize="22dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:background="@drawable/square_stroke"
+                android:layout_marginBottom="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/word_recycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginVertical="5dp"
+        android:textAllCaps="true"
+        android:fontFamily="@font/roboto_mono_light"
+        android:textSize="14dp"
+        android:scrollbars="vertical"
+        android:layout_marginHorizontal="1dp"
+        android:textColor="?themeColorTXT"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/submit_box"
+        app:layout_constraintRight_toRightOf="@id/submit_box"
+        app:layout_constraintTop_toBottomOf="@id/submit_box"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/app_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/test_btn"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:backgroundTint="?themeColorTXT"
+            android:text="0"
+            android:textColor="?themeColorBG"
+            android:gravity="center"
+            android:textSize="17dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/name"
+            app:layout_constraintRight_toLeftOf="@id/rules"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/text_size"
+            android:textColor="?themeColorTXT"
+            android:layout_marginStart="13dp"
+            android:fontFamily="@font/roboto_mono_light"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/app_name"/>
+
+        <TextView
+            android:id="@+id/pl1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:layout_marginStart="5dp"
+            android:textSize="@dimen/text_size"
+            android:visibility="invisible"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/pl2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/pl2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:visibility="invisible"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl1"
+            app:layout_constraintRight_toLeftOf="@id/pl3"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:visibility="invisible"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl2"
+            app:layout_constraintRight_toLeftOf="@id/pl4"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:visibility="invisible"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl3"
+            app:layout_constraintRight_toLeftOf="@id/pl5"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl4"
+            app:layout_constraintRight_toLeftOf="@id/pl6"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:visibility="invisible"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl5"
+            app:layout_constraintRight_toLeftOf="@id/pl7"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:visibility="invisible"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl6"
+            app:layout_constraintRight_toLeftOf="@id/pl8"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl8"
+            android:layout_width="0dp"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl7"
+            app:layout_constraintRight_toLeftOf="@id/pl9"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <ImageView
+            android:id="@+id/theme"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@drawable/white_box_24"
+            android:layout_marginTop="2dp"
+            app:layout_constraintBottom_toBottomOf="@id/pl8"
+            app:layout_constraintLeft_toLeftOf="@id/pl8"
+            app:layout_constraintRight_toRightOf="@id/pl8"
+            app:layout_constraintTop_toTopOf="@id/pl8"/>
+
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/pl9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl8"
+            app:layout_constraintRight_toLeftOf="@id/pl10"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:visibility="invisible"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl9"
+            app:layout_constraintRight_toLeftOf="@id/pl0_1"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl0_1"
+            android:visibility="invisible"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl10"
+            app:layout_constraintRight_toLeftOf="@id/pl0_2"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/pl0_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:background="@drawable/square"
+            android:layout_marginEnd="5dp"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/pl1"
+            app:layout_constraintLeft_toRightOf="@id/pl0_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/pl1" />
+
+        <TextView
+            android:id="@+id/statistics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="%"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/pl0_2"
+            app:layout_constraintRight_toRightOf="@id/pl0_2"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/rules"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="\?"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/pl10"
+            app:layout_constraintRight_toRightOf="@id/pl10"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+<!--        <ImageView-->
+<!--            android:id="@+id/star"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:gravity="center"-->
+<!--            android:src="@drawable/star_pro"-->
+<!--            android:layout_marginVertical="7dp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@id/rules"-->
+<!--            app:layout_constraintLeft_toLeftOf="@id/pl10"-->
+<!--            app:layout_constraintRight_toRightOf="@id/pl10"-->
+<!--            app:layout_constraintTop_toTopOf="@id/rules"/>-->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/stat_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#60000000"
+        android:elevation="5dp"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/today"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="Apr 08 2023"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto_mono_light"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/today_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:text="Знайдено слів:"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/today_row1"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today">
+
+                <TextView
+                    android:id="@+id/today_num1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/today_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="3 літери:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title1" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/today_row2"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/today_row1"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title1">
+
+                <TextView
+                    android:id="@+id/today_num2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/today_title3"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:text="4 літери:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/today_row3"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/today_row2"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title2">
+
+                <TextView
+                    android:id="@+id/today_num3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/today_title4"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="5 літер:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/today_row4"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/today_row3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title3">
+
+                <TextView
+                    android:id="@+id/today_num4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/today_title5"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="6 літер:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title4"
+                android:layout_marginBottom="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/today_row5"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/today_row4"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title4">
+
+                <TextView
+                    android:id="@+id/today_num5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/today_title6"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="7 літер:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title5"
+                android:layout_marginBottom="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/today_row6"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/today_row5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/today_title5">
+
+                <TextView
+                    android:id="@+id/today_num6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Загальна"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:textSize="13dp"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/roboto_mono_light"
+                app:layout_constraintTop_toBottomOf="@id/today_row6"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/stats_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:text="Зіграно ігор:"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row1"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/total">
+
+                <TextView
+                    android:id="@+id/stats_num1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Знайдено слів:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title1" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row2"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title1">
+
+                <TextView
+                    android:id="@+id/stats_num2"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title3"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:text="Середня кількість:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title2" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row3"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toRightOf="@id/stats_title3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title2">
+
+                <TextView
+                    android:id="@+id/stats_num3"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title4"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Максимум слів:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title3" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row4"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title3">
+
+                <TextView
+                    android:id="@+id/stats_num4"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title5"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="Мінімум слів:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title4"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row5"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row4"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title4">
+
+                <TextView
+                    android:id="@+id/stats_num5"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title6"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="3 літери:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title5" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row6"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row5"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title5">
+
+                <TextView
+                    android:id="@+id/stats_num6"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title7"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:text="4 літери:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title6" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row7"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row6"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title6">
+
+                <TextView
+                    android:id="@+id/stats_num7"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title8"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="5 літер:"
+                android:textColor="@color/white"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textSize="17dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title7" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row8"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row7"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title7">
+
+                <TextView
+                    android:id="@+id/stats_num8"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textColor="@color/blue"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title9"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="6 літер:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title8"
+                android:layout_marginBottom="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row9"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row8"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title8">
+
+                <TextView
+                    android:id="@+id/stats_num9"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/stats_title10"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="7 літер:"
+                android:textColor="@color/white"
+                android:textSize="17dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title9"
+                android:layout_marginBottom="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/stats_row10"
+                android:layout_width="0dp"
+                android:layout_height="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                app:layout_constraintLeft_toLeftOf="@id/stats_row9"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/stats_title9">
+
+                <TextView
+                    android:id="@+id/stats_num10"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:text="0"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/roboto_mono_light"
+                    android:textSize="17dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rules_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#60000000"
+        android:elevation="5dp"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/rules_title1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:inputType="textMultiLine"
+                android:text="Овва -  це оригінальний кросворд українською. Щодня ви отримуєте набір з 144 випадкових літер, серед яких потрібно знаходити слова довжиною 3-7 літер."
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/rules_title2"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:inputType="textMultiLine"
+                android:text="Якщо вам подобається гра, ви можете:"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:layout_marginLeft="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/rules_title1"
+                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/review_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/square_stroke_black"
+                android:fontFamily="@font/roboto_mono_light"
+                android:gravity="center"
+                android:text=" Rate "
+                android:textColor="@color/blue"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/rules_title3"
+                app:layout_constraintLeft_toRightOf="@id/rules_title3"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="@id/rules_title3"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/rules_title3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:inputType="textMultiLine"
+                android:text="- оцінити її та написати відгук"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/rules_title2"
+                app:layout_constraintRight_toRightOf="@id/rules_title2"
+                app:layout_constraintTop_toBottomOf="@id/rules_title2"
+                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/rules_title5"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:inputType="textMultiLine"
+                android:text="- поділитись з друзями та рідними"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/rules_title2"
+                app:layout_constraintRight_toRightOf="@id/rules_title3"
+                app:layout_constraintTop_toBottomOf="@id/rules_title3"
+                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/share_btn"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@drawable/square_stroke_black"
+                android:fontFamily="@font/roboto_mono_light"
+                android:gravity="center"
+                android:text=" Share "
+                android:textColor="@color/blue"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/rules_title5"
+                app:layout_constraintLeft_toLeftOf="@id/review_btn"
+                app:layout_constraintRight_toRightOf="@id/review_btn"
+                app:layout_constraintTop_toTopOf="@id/rules_title5"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/rules_title4"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:inputType="textMultiLine"
+                android:text="- придбати СЛОВВА - гру без реклами та з необмеженою кількістю ігор"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintLeft_toLeftOf="@id/rules_title2"
+                app:layout_constraintRight_toRightOf="@id/rules_title2"
+                app:layout_constraintTop_toBottomOf="@id/rules_title5"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/buy_btn"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@drawable/square_stroke_black"
+                android:fontFamily="@font/roboto_mono_light"
+                android:gravity="center"
+                android:text=" Buy "
+                android:textColor="@color/blue"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/rules_title4"
+                app:layout_constraintLeft_toLeftOf="@id/review_btn"
+                app:layout_constraintRight_toRightOf="@id/review_btn"
+                app:layout_constraintTop_toTopOf="@id/rules_title4"
+                tools:ignore="TextSizeCheck" />
+
+            <TextView
+                android:id="@+id/rules_title6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/roboto_mono_light"
+                android:inputType="textMultiLine"
+                android:text="- спробувати FindWord - англійську версію цієї гри"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="@id/rules_title2"
+                app:layout_constraintRight_toRightOf="@id/rules_title2"
+                app:layout_constraintTop_toBottomOf="@id/rules_title4"
+                tools:ignore="TextSizeCheck,TouchTargetSizeCheck" />
+
+            <TextView
+                android:id="@+id/findword_btn"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:background="@drawable/square_stroke_black"
+                android:fontFamily="@font/roboto_mono_light"
+                android:gravity="center"
+                android:text=" Try "
+                android:textColor="@color/blue"
+                android:textSize="15dp"
+                app:layout_constraintBottom_toBottomOf="@id/rules_title6"
+                app:layout_constraintLeft_toLeftOf="@id/review_btn"
+                app:layout_constraintRight_toRightOf="@id/review_btn"
+                app:layout_constraintTop_toTopOf="@id/rules_title6"
+                tools:ignore="TextSizeCheck" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <View
+        android:id="@+id/div1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="2dp"
+        android:background="?themeColorSTR"
+        app:layout_constraintTop_toBottomOf="@id/app_name"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/let_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintTop_toBottomOf="@id/app_name">
+
+        <TextView
+            android:id="@+id/let_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="А"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_11"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/let_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Б"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_1"
+            app:layout_constraintRight_toLeftOf="@id/let_3"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="В"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_2"
+            app:layout_constraintRight_toLeftOf="@id/let_4"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Г"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_3"
+            app:layout_constraintRight_toLeftOf="@id/let_5"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Д"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_4"
+            app:layout_constraintRight_toLeftOf="@id/let_6"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Е"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_5"
+            app:layout_constraintRight_toLeftOf="@id/let_7"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Є"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_6"
+            app:layout_constraintRight_toLeftOf="@id/let_8"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ж"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_7"
+            app:layout_constraintRight_toLeftOf="@id/let_9"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="З"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_8"
+            app:layout_constraintRight_toLeftOf="@id/let_10"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="И"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_9"
+            app:layout_constraintRight_toLeftOf="@id/let_0_1"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_0_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="І"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_10"
+            app:layout_constraintRight_toLeftOf="@id/let_0_2"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_0_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ї"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_1"
+            app:layout_constraintLeft_toRightOf="@id/let_0_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Й"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_21"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_12"
+            app:layout_constraintTop_toBottomOf="@id/let_1" />
+
+        <TextView
+            android:id="@+id/let_12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="К"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_11"
+            app:layout_constraintRight_toLeftOf="@id/let_13"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_13"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Л"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_12"
+            app:layout_constraintRight_toLeftOf="@id/let_14"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_14"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="М"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_13"
+            app:layout_constraintRight_toLeftOf="@id/let_15"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_15"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Н"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_14"
+            app:layout_constraintRight_toLeftOf="@id/let_16"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="О"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_15"
+            app:layout_constraintRight_toLeftOf="@id/let_17"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_17"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="П"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_16"
+            app:layout_constraintRight_toLeftOf="@id/let_18"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Р"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_17"
+            app:layout_constraintRight_toLeftOf="@id/let_19"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_19"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="С"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_18"
+            app:layout_constraintRight_toLeftOf="@id/let_20"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_20"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Т"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_19"
+            app:layout_constraintRight_toLeftOf="@id/let_1_1"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_1_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="У"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_20"
+            app:layout_constraintRight_toLeftOf="@id/let_1_2"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_1_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ф"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_11"
+            app:layout_constraintLeft_toRightOf="@id/let_1_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_21"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Х"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_31"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_22"
+            app:layout_constraintTop_toBottomOf="@id/let_11" />
+
+        <TextView
+            android:id="@+id/let_22"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ц"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_21"
+            app:layout_constraintRight_toLeftOf="@id/let_23"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_23"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ч"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_22"
+            app:layout_constraintRight_toLeftOf="@id/let_24"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_24"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ш"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_23"
+            app:layout_constraintRight_toLeftOf="@id/let_25"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Щ"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_24"
+            app:layout_constraintRight_toLeftOf="@id/let_26"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_26"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ь"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_25"
+            app:layout_constraintRight_toLeftOf="@id/let_27"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_27"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Ю"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_26"
+            app:layout_constraintRight_toLeftOf="@id/let_28"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_28"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="Я"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_27"
+            app:layout_constraintRight_toLeftOf="@id/let_29"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_29"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_28"
+            app:layout_constraintRight_toLeftOf="@id/let_30"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_30"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_29"
+            app:layout_constraintRight_toLeftOf="@id/let_2_1"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_2_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_30"
+            app:layout_constraintRight_toLeftOf="@id/let_2_2"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_2_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_21"
+            app:layout_constraintLeft_toRightOf="@id/let_2_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_31"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_41"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_32"
+            app:layout_constraintTop_toBottomOf="@id/let_21" />
+
+        <TextView
+            android:id="@+id/let_32"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_31"
+            app:layout_constraintRight_toLeftOf="@id/let_33"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_33"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_32"
+            app:layout_constraintRight_toLeftOf="@id/let_34"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_34"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_33"
+            app:layout_constraintRight_toLeftOf="@id/let_35"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_35"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_34"
+            app:layout_constraintRight_toLeftOf="@id/let_36"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_36"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_35"
+            app:layout_constraintRight_toLeftOf="@id/let_37"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_37"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_36"
+            app:layout_constraintRight_toLeftOf="@id/let_38"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_38"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_37"
+            app:layout_constraintRight_toLeftOf="@id/let_39"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_39"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_38"
+            app:layout_constraintRight_toLeftOf="@id/let_40"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_40"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_39"
+            app:layout_constraintRight_toLeftOf="@id/let_3_1"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_3_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_40"
+            app:layout_constraintRight_toLeftOf="@id/let_3_2"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_3_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_31"
+            app:layout_constraintLeft_toRightOf="@id/let_3_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_41"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_51"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_42"
+            app:layout_constraintTop_toBottomOf="@id/let_31" />
+
+        <TextView
+            android:id="@+id/let_42"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_41"
+            app:layout_constraintRight_toLeftOf="@id/let_43"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_43"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_42"
+            app:layout_constraintRight_toLeftOf="@id/let_44"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_44"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_43"
+            app:layout_constraintRight_toLeftOf="@id/let_45"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_45"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_44"
+            app:layout_constraintRight_toLeftOf="@id/let_46"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_46"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_45"
+            app:layout_constraintRight_toLeftOf="@id/let_47"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_47"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_46"
+            app:layout_constraintRight_toLeftOf="@id/let_48"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_48"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_47"
+            app:layout_constraintRight_toLeftOf="@id/let_49"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_49"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_48"
+            app:layout_constraintRight_toLeftOf="@id/let_50"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_50"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_49"
+            app:layout_constraintRight_toLeftOf="@id/let_4_1"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_4_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_50"
+            app:layout_constraintRight_toLeftOf="@id/let_4_2"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_4_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_41"
+            app:layout_constraintLeft_toRightOf="@id/let_4_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_51"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_61"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_52"
+            app:layout_constraintTop_toBottomOf="@id/let_41" />
+
+        <TextView
+            android:id="@+id/let_52"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_51"
+            app:layout_constraintRight_toLeftOf="@id/let_53"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_53"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_52"
+            app:layout_constraintRight_toLeftOf="@id/let_54"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_54"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_53"
+            app:layout_constraintRight_toLeftOf="@id/let_55"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_55"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_54"
+            app:layout_constraintRight_toLeftOf="@id/let_56"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_56"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_55"
+            app:layout_constraintRight_toLeftOf="@id/let_57"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_57"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_56"
+            app:layout_constraintRight_toLeftOf="@id/let_58"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_58"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_57"
+            app:layout_constraintRight_toLeftOf="@id/let_59"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_59"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_58"
+            app:layout_constraintRight_toLeftOf="@id/let_60"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_60"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_59"
+            app:layout_constraintRight_toLeftOf="@id/let_5_1"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_5_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_60"
+            app:layout_constraintRight_toLeftOf="@id/let_5_2"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_5_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_51"
+            app:layout_constraintLeft_toRightOf="@id/let_5_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_61"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_71"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_62"
+            app:layout_constraintTop_toBottomOf="@id/let_51" />
+
+        <TextView
+            android:id="@+id/let_62"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_61"
+            app:layout_constraintRight_toLeftOf="@id/let_63"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_63"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_62"
+            app:layout_constraintRight_toLeftOf="@id/let_64"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_64"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_63"
+            app:layout_constraintRight_toLeftOf="@id/let_65"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_65"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_64"
+            app:layout_constraintRight_toLeftOf="@id/let_66"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_66"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_65"
+            app:layout_constraintRight_toLeftOf="@id/let_67"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_67"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_66"
+            app:layout_constraintRight_toLeftOf="@id/let_68"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_68"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_67"
+            app:layout_constraintRight_toLeftOf="@id/let_69"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_69"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_68"
+            app:layout_constraintRight_toLeftOf="@id/let_70"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_70"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_69"
+            app:layout_constraintRight_toLeftOf="@id/let_6_1"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_6_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_70"
+            app:layout_constraintRight_toLeftOf="@id/let_6_2"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_6_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_61"
+            app:layout_constraintLeft_toRightOf="@id/let_6_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_71"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_81"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_72"
+            app:layout_constraintTop_toBottomOf="@id/let_61" />
+
+        <TextView
+            android:id="@+id/let_72"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_71"
+            app:layout_constraintRight_toLeftOf="@id/let_73"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_73"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_72"
+            app:layout_constraintRight_toLeftOf="@id/let_74"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_74"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_73"
+            app:layout_constraintRight_toLeftOf="@id/let_75"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_75"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_74"
+            app:layout_constraintRight_toLeftOf="@id/let_76"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_76"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_75"
+            app:layout_constraintRight_toLeftOf="@id/let_77"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_77"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_76"
+            app:layout_constraintRight_toLeftOf="@id/let_78"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_78"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_77"
+            app:layout_constraintRight_toLeftOf="@id/let_79"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_79"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_78"
+            app:layout_constraintRight_toLeftOf="@id/let_80"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_80"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_79"
+            app:layout_constraintRight_toLeftOf="@id/let_7_1"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_7_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_80"
+            app:layout_constraintRight_toLeftOf="@id/let_7_2"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_7_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_71"
+            app:layout_constraintLeft_toRightOf="@id/let_7_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_81"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_91"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_82"
+            app:layout_constraintTop_toBottomOf="@id/let_71" />
+
+        <TextView
+            android:id="@+id/let_82"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_81"
+            app:layout_constraintRight_toLeftOf="@id/let_83"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_83"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_82"
+            app:layout_constraintRight_toLeftOf="@id/let_84"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_84"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_83"
+            app:layout_constraintRight_toLeftOf="@id/let_85"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_85"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_84"
+            app:layout_constraintRight_toLeftOf="@id/let_86"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_86"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_85"
+            app:layout_constraintRight_toLeftOf="@id/let_87"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_87"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_86"
+            app:layout_constraintRight_toLeftOf="@id/let_88"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_88"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_87"
+            app:layout_constraintRight_toLeftOf="@id/let_89"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_89"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_88"
+            app:layout_constraintRight_toLeftOf="@id/let_90"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_90"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_89"
+            app:layout_constraintRight_toLeftOf="@id/let_8_1"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_8_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_90"
+            app:layout_constraintRight_toLeftOf="@id/let_8_2"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_8_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_81"
+            app:layout_constraintLeft_toRightOf="@id/let_8_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_91"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_101"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_92"
+            app:layout_constraintTop_toBottomOf="@id/let_81" />
+
+        <TextView
+            android:id="@+id/let_92"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_91"
+            app:layout_constraintRight_toLeftOf="@id/let_93"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_93"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_92"
+            app:layout_constraintRight_toLeftOf="@id/let_94"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_94"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_93"
+            app:layout_constraintRight_toLeftOf="@id/let_95"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_95"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_94"
+            app:layout_constraintRight_toLeftOf="@id/let_96"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_96"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_95"
+            app:layout_constraintRight_toLeftOf="@id/let_97"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_97"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_96"
+            app:layout_constraintRight_toLeftOf="@id/let_98"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_98"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_97"
+            app:layout_constraintRight_toLeftOf="@id/let_99"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_99"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_98"
+            app:layout_constraintRight_toLeftOf="@id/let_100"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_100"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_99"
+            app:layout_constraintRight_toLeftOf="@id/let_9_1"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_9_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_100"
+            app:layout_constraintRight_toLeftOf="@id/let_9_2"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_9_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_91"
+            app:layout_constraintLeft_toRightOf="@id/let_9_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_101"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toTopOf="@id/let_111"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_102"
+            app:layout_constraintTop_toBottomOf="@id/let_91" />
+
+        <TextView
+            android:id="@+id/let_102"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_101"
+            app:layout_constraintRight_toLeftOf="@id/let_103"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_103"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="а"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_102"
+            app:layout_constraintRight_toLeftOf="@id/let_104"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_104"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_103"
+            app:layout_constraintRight_toLeftOf="@id/let_105"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_105"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_104"
+            app:layout_constraintRight_toLeftOf="@id/let_106"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_106"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_105"
+            app:layout_constraintRight_toLeftOf="@id/let_107"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_107"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_106"
+            app:layout_constraintRight_toLeftOf="@id/let_108"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_108"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_107"
+            app:layout_constraintRight_toLeftOf="@id/let_109"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_109"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_108"
+            app:layout_constraintRight_toLeftOf="@id/let_110"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_110"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_109"
+            app:layout_constraintRight_toLeftOf="@id/let_10_1"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_10_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_110"
+            app:layout_constraintRight_toLeftOf="@id/let_10_2"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_10_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_101"
+            app:layout_constraintLeft_toRightOf="@id/let_10_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_111"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/let_112"
+            app:layout_constraintTop_toBottomOf="@id/let_101" />
+
+        <TextView
+            android:id="@+id/let_112"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_111"
+            app:layout_constraintRight_toLeftOf="@id/let_113"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_113"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_112"
+            app:layout_constraintRight_toLeftOf="@id/let_114"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_114"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_113"
+            app:layout_constraintRight_toLeftOf="@id/let_115"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_115"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_114"
+            app:layout_constraintRight_toLeftOf="@id/let_116"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_116"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_115"
+            app:layout_constraintRight_toLeftOf="@id/let_117"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_117"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_116"
+            app:layout_constraintRight_toLeftOf="@id/let_118"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_118"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_117"
+            app:layout_constraintRight_toLeftOf="@id/let_119"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_119"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_118"
+            app:layout_constraintRight_toLeftOf="@id/let_120"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_120"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_119"
+            app:layout_constraintRight_toLeftOf="@id/let_11_1"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_11_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_120"
+            app:layout_constraintRight_toLeftOf="@id/let_11_2"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+        <TextView
+            android:id="@+id/let_11_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:text="s"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/let_111"
+            app:layout_constraintLeft_toRightOf="@id/let_11_1"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/let_111" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/submit_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginHorizontal="5dp"
+        app:layout_constraintTop_toBottomOf="@id/let_container">
+        <TextView
+            android:id="@+id/submit_1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:layout_marginHorizontal="1dp"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/submit_2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/submit_2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:layout_marginHorizontal="1dp"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_1"
+            app:layout_constraintRight_toLeftOf="@id/submit_3"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:layout_marginHorizontal="1dp"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_2"
+            app:layout_constraintRight_toLeftOf="@id/submit_4"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:layout_marginHorizontal="1dp"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_3"
+            app:layout_constraintRight_toLeftOf="@id/submit_5"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:layout_marginHorizontal="1dp"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_4"
+            app:layout_constraintRight_toLeftOf="@id/submit_6"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:layout_marginHorizontal="1dp"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_5"
+            app:layout_constraintRight_toLeftOf="@id/submit_7"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_6"
+            app:layout_constraintRight_toLeftOf="@id/submit_8"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:visibility="invisible"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            android:layout_marginHorizontal="1dp"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_7"
+            app:layout_constraintRight_toLeftOf="@id/submit_9"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="1dp"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_8"
+            app:layout_constraintRight_toLeftOf="@id/submit_10"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:layout_marginHorizontal="1dp"
+            android:textColor="?themeColorTXT"
+            android:visibility="invisible"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_9"
+            app:layout_constraintRight_toLeftOf="@id/submit_11"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_11"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:layout_marginHorizontal="1dp"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_10"
+            app:layout_constraintRight_toLeftOf="@id/submit_12"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_12"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/square_stroke"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:layout_marginHorizontal="1dp"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="@dimen/text_size"
+            app:layout_constraintBottom_toBottomOf="@id/submit_1"
+            app:layout_constraintLeft_toRightOf="@id/submit_11"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/submit_1" />
+
+        <TextView
+            android:id="@+id/submit_btn"
+            android:background="@drawable/square_stroke"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="21dp"
+            android:text="ТИЦЬ!"
+            app:layout_constraintLeft_toLeftOf="@id/submit_8"
+            app:layout_constraintRight_toRightOf="@id/submit_10"
+            app:layout_constraintTop_toTopOf="@id/submit_8"
+            app:layout_constraintBottom_toBottomOf="@id/submit_8"/>
+        <TextView
+            android:id="@+id/submit_counter"
+            android:background="@drawable/square_stroke"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fontFamily="@font/roboto_mono_light"
+            android:gravity="center"
+            android:textAllCaps="true"
+            android:textColor="?themeColorTXT"
+            android:textSize="21dp"
+            android:text="000"
+            app:layout_constraintLeft_toLeftOf="@id/submit_11"
+            app:layout_constraintRight_toRightOf="@id/submit_12"
+            app:layout_constraintTop_toTopOf="@id/submit_8"
+            app:layout_constraintBottom_toBottomOf="@id/submit_8"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

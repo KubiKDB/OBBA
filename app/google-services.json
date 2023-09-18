@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "100288182099",
+    "project_id": "obba-2fe2b",
+    "storage_bucket": "obba-2fe2b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:100288182099:android:0562b2dc954286ec6053a6",
+        "android_client_info": {
+          "package_name": "com.daniel.obba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "100288182099-juvnnrkbidela71vjmt4eeg0vu4luhju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwOspVLOg_sC_6mRZ2tvZSDVeKsvWrU3A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "100288182099-juvnnrkbidela71vjmt4eeg0vu4luhju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
